@@ -1,16 +1,22 @@
 import os
+import glob
+from pathlib import Path
+
+base_folder = 'A:/Academic/Art-Recongtion/dataset/dataset_updated/training_set/'
+valid_folder = 'A:/Academic/Art-Recongtion/dataset/dataset_updated/validation_set/'
+image_format = '.jpeg'
 
 def dataset_download():
+    
     os.system("pip install -q kaggle")
     os.environ['KAGGLE_USERNAME'] = "luish3nriqu3"
     os.environ['KAGGLE_KEY'] = "2b26c0224bc647ff4f39ed01a21dc931"
     os.system("kaggle datasets download -d thedownhill/art-images-drawings-painting-sculpture-engraving")
 
+    os.system("peazip -ext2simple art-images-drawings-painting-sculpture-engraving.zip")
 
-    os.system("unzip -q art-images-drawings-painting-sculpture-engraving.zip")
-
-    os.system("mv dataset/dataset_updated/training_set/drawings  dataset/dataset_updated/training_set/0")
-    os.system("mv dataset/dataset_updated/training_set/engraving  dataset/dataset_updated/training_set/1")
+    os.system("move dataset/dataset_updated/training_set/drawings  dataset/dataset_updated/training_set/0")
+    os.system("move dataset/dataset_updated/training_set/engraving  dataset/dataset_updated/training_set/1")
     os.system("mv dataset/dataset_updated/training_set/engraving  dataset/dataset_updated/training_set/2")
     os.system("mv dataset/dataset_updated/training_set/engraving  dataset/dataset_updated/training_set/3")
     os.system("mv dataset/dataset_updated/training_set/engraving  dataset/dataset_updated/training_set/4")

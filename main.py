@@ -13,8 +13,8 @@ import sklearn
 import mahotas
 
 ''' globals'''
-base_folder = 'dataset/dataset_updated/training_set/'
-valid_folder = 'dataset/dataset_updated/validation_set/'
+base_folder = 'A:/Academic/Art-Recongtion/dataset/dataset_updated/training_set/'
+valid_folder = 'A:/Academic/Art-Recongtion/dataset/dataset_updated/validation_set/'
 image_format = '.jpeg'
 
 
@@ -23,12 +23,12 @@ bins = 9
 
 
 def main():
-    dataset_download()#comment if alredy downloadead
+    #dataset_download()#comment if alredy downloadead
 
     change_ext(image_format,valid_folder)
     change_ext(image_format,base_folder)
 
-
+'''
     dt, lb = extract_features("lbp")	
     dhisto, lbhisto = extract_features("hist")	
     dhara, lbhara = extract_features("hara")
@@ -70,6 +70,6 @@ def main():
     print("Coletando resultados - Haralick")
     m_lbp = sklearn.metrics.confusion_matrix(y_test_hara, y_get_hara)
     print(sklearn.metrics.classification_report(y_test_hara, y_get_hara))	
-    
+'''   
 if __name__ == '__main__':
     main()

@@ -1,7 +1,12 @@
 from PIL import Image
+import numpy as np
+
 kernel = np.array([[-1,-1,-1], #kernel
                     [-1,9,-1],
                     [-1,-1,-1]])
+
+blocks = 2
+bins = 9
 
 def pre_process(arq):
    #print(f'{i}->{arq}')
