@@ -59,6 +59,7 @@ def hist_it(target,label):
       #img = Image.fromarray(img)
       labels.append(label)
       hist  = cv2.calcHist([img], [0, 1, 2], None, [bins, bins, bins], [0, 256, 0, 256, 0, 256])
+      #hist  = cv2.calcHist([img],[0],None,[256],[0,256])
       # normalize the histogram
       cv2.normalize(hist, hist)
       #print(hist.flatten())
