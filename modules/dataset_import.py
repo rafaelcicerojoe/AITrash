@@ -2,8 +2,8 @@ import os
 import glob
 from pathlib import Path
 
-base_folder = 'A:/Academic/Art-Recongtion/dataset/dataset_updated/training_set/'
-valid_folder = 'A:/Academic/Art-Recongtion/dataset/dataset_updated/validation_set/'
+base_folder = "A:/Academic/Art-Recongtion - Copia/dataset/dataset_updated/training_set/"
+valid_folder = 'A:/Academic/Art-Recongtion - Copia/dataset/dataset_updated/validation_set/'
 image_format = '.jpeg'
 
 def dataset_download():
@@ -32,12 +32,13 @@ def dataset_download():
     pass
 
 def get_folders(data_base):
-	data_folders = []
-	for name in os.listdir(data_base):
-		if(os.path.isdir(data_base + name)):
-			data_folders.append(name)
-	#print(data_base)
-	return data_folders
+    data_folders = []
+    for name in os.listdir(data_base):
+        #print(name, data_base)
+        if(os.path.isdir(data_base + name)):
+            data_folders.append(name)
+    #print(data_base)
+    return data_folders
 
 def change_ext(format=image_format,target=base_folder):
     class_paths = get_folders(target)
@@ -48,3 +49,4 @@ def change_ext(format=image_format,target=base_folder):
             p.rename(p.with_suffix(image_format))
 
 
+get_folders(base_folder)
