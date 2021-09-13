@@ -146,3 +146,18 @@ def augmentation():
 
   #train_ds = train_ds.shuffle(1000).map(augment, num_parallel_calls=tf.data.experimental.AUTOTUNE).batch(batch_size).prefetch(AUTOTUNE)
   pass
+
+def kerasTry():
+  data_augmentation = tf.keras.Sequential([
+     layers.experimental.preprocessing.RandomFlip("horizontal_and_vertical"),
+     layers.experimental.preprocessing.RandomRotation(0.2)])
+
+  image = tf.expand_dims(image, 0)
+  plt.figure(figsize=(10, 10))
+
+  for i in range(9):
+    augmented_image = data_augmentation(image)
+    ax = plt.subplot(3, 3, i + 1)
+    plt.imshow(augmented_image[0])
+    plt.axis("off")
+  pass
