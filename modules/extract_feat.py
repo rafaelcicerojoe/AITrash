@@ -109,3 +109,40 @@ def lbp_it(target,label):
         labels.append(label)
         
   return data,labels
+
+#-----
+def augmentation():
+  import glob
+  import numpy as np
+  import pandas as pd
+  import os
+  import shutil 
+  import matplotlib.pyplot as plt
+  from keras.preprocessing.image import ImageDataGenerator, load_img, img_to_array, array_to_img
+  %matplotlib inline
+
+  IMG_SIZE = 255
+  batch_size = 20
+  import tensorflow as tf
+  from tensorflow.keras.layers import Dense, Flatten, Conv2D
+  from tensorflow.keras import Model
+
+
+  import tensorflow_datasets as tfds 
+
+  def augment(image, label):
+    image = tf.cast(image, tf.float32)
+    image = tf.image.resize(image, [IMG_SIZE, IMG_SIZE])
+    image = (image / 255.0)
+    image = tf.image.random_crop(image, size=[IMG_SIZE, IMG_SIZE, 3])
+    image = tf.image.random_brightness(image, max_delta=0.5)
+    return image, label
+
+  (train_ds, val_ds, test_ds), metadata = tfds.load(
+      'tf_flowers',
+       split=['train[:80%]', 'train[80%:90%]', 'train[90%:]'],
+       with_info=True,
+       as_supervised=True,)
+
+  #train_ds = train_ds.shuffle(1000).map(augment, num_parallel_calls=tf.data.experimental.AUTOTUNE).batch(batch_size).prefetch(AUTOTUNE)
+  pass
