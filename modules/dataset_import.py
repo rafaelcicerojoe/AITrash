@@ -2,8 +2,8 @@ import os
 import glob
 from pathlib import Path
 
-base_folder = "A:/Academic/Art-Recongtion - Copia/dataset/dataset_updated/training_set/"
-valid_folder = 'A:/Academic/Art-Recongtion - Copia/dataset/dataset_updated/validation_set/'
+base_folder = "A:/Academic/Art-Recongtion-Copia/dataset/dataset_updated/training_set/"
+valid_folder = 'A:/Academic/Art-Recongtion-Copia/dataset/dataset_updated/validation_set/'
 image_format = '.jpeg'
 
 def dataset_download():
